@@ -1,0 +1,86 @@
+
+/* MAOSPIX BSPWM - RETRO */
+
+* {
+    bg:        #160D29;
+    bg-alt:    #30204B;
+    fg:        #FFE8F8;
+    accent:    #FF4FD8;
+    secondary: #45D9FF;
+    muted:     #89779C;
+
+    font: "JetBrains Mono 11";
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 570px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 7px;
+    padding: 16px;
+}
+
+mainbox {
+    background-color: @bg;
+    children: [inputbar, listview];
+    spacing: 14px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 5px;
+    padding: 12px;
+    spacing: 10px;
+    children: [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @secondary;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "Buscar aplicaciones...";
+    placeholder-color: @muted;
+}
+
+listview {
+    background-color: @bg;
+    columns: 2;
+    lines: 5;
+    spacing: 7px;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+    padding: 10px;
+    spacing: 10px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @bg-alt;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 26px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: @fg;
+    vertical-align: 0.5;
+}
+
+element-text selected {
+    text-color: @accent;
+}

@@ -1,0 +1,114 @@
+
+/* ===================================
+   MAOSPIX BSPWM - RETRO
+   EWW STYLE 1.0
+   =================================== */
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono";
+}
+
+window {
+  background-color: transparent;
+}
+
+/* RELOJ */
+
+.clock-card {
+  background-color: #160D29;
+  border: 2px solid #FF4FD8;
+  box-shadow: 0 0 12px rgba(255, 79, 216, 0.25);
+  border-radius: 7px;
+  padding: 14px;
+}
+
+.clock-title {
+  color: #FF4FD8;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.clock-time {
+  color: #FFE8F8;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.clock-date {
+  color: #45D9FF;
+  font-size: 13px;
+}
+
+/* PANEL DEL SISTEMA */
+
+.stats-card {
+  background-color: #160D29;
+  border: 2px solid #FF4FD8;
+  box-shadow: 0 0 12px rgba(255, 79, 216, 0.25);
+  border-radius: 7px;
+  padding: 14px;
+  color: #FFE8F8;
+}
+
+.stats-title {
+  color: #45D9FF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.stat-block {
+  color: #FFE8F8;
+  font-size: 12px;
+}
+
+/* BARRAS DE PROGRESO */
+
+.meter trough {
+  background-color: #30204B;
+  border-radius: 8px;
+  min-height: 9px;
+  min-width: 200px;
+}
+
+.meter progress {
+  background-color: #FF4FD8;
+  border-radius: 8px;
+  min-height: 9px;
+}
+
+/* DETALLES */
+
+label {
+  color: #FFE8F8;
+}
+
+/* CALENDARIO RETRO */
+
+.calendar-card {
+  background-color: #160D29;
+  border: 2px solid #45D9FF;
+  box-shadow: 0 0 12px rgba(69, 217, 255, 0.25);
+  border-radius: 7px;
+  padding: 16px;
+  color: #FFE8F8;
+}
+
+.calendar-title {
+  color: #FF4FD8;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  background-color: transparent;
+  color: #FFE8F8;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.calendar-grid:selected {
+  background-color: #FF4FD8;
+  color: #160D29;
+  border-radius: 6px;
+}

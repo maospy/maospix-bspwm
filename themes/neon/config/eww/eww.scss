@@ -1,0 +1,111 @@
+
+/* ===================================
+   MAOSPIX BSPWM - NEON
+   EWW STYLE 1.0
+   =================================== */
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono";
+}
+
+window {
+  background-color: transparent;
+}
+
+/* RELOJ */
+
+.clock-card {
+  background-color: #121025;
+  border: 2px solid #B388FF;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.clock-title {
+  color: #B388FF;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.clock-time {
+  color: #EAE6FF;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.clock-date {
+  color: #42D9FF;
+  font-size: 13px;
+}
+
+/* PANEL DEL SISTEMA */
+
+.stats-card {
+  background-color: #121025;
+  border: 2px solid #B388FF;
+  border-radius: 14px;
+  padding: 14px;
+  color: #EAE6FF;
+}
+
+.stats-title {
+  color: #42D9FF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.stat-block {
+  color: #EAE6FF;
+  font-size: 12px;
+}
+
+/* BARRAS DE PROGRESO */
+
+.meter trough {
+  background-color: #292044;
+  border-radius: 8px;
+  min-height: 9px;
+  min-width: 200px;
+}
+
+.meter progress {
+  background-color: #B388FF;
+  border-radius: 8px;
+  min-height: 9px;
+}
+
+/* DETALLES */
+
+label {
+  color: #EAE6FF;
+}
+
+/* CALENDARIO NEON */
+
+.calendar-card {
+  background-color: #121025;
+  border: 2px solid #42D9FF;
+  border-radius: 14px;
+  padding: 16px;
+  color: #EAE6FF;
+}
+
+.calendar-title {
+  color: #B388FF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  background-color: transparent;
+  color: #EAE6FF;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.calendar-grid:selected {
+  background-color: #B388FF;
+  color: #121025;
+  border-radius: 6px;
+}

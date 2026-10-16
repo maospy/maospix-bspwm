@@ -1,0 +1,43 @@
+# MAOSPIX BSPWM - DARK
+
+[global]
+    monitor = 0
+    follow = mouse
+    width = 320
+   # height = 150
+    height = (0, 150)
+    origin = top-right
+    offset = (15, 15)
+
+    font = "JetBrains Mono 10"
+    corner_radius = 10
+    frame_width = 2
+    frame_color = "#A3BE8C"
+
+    padding = 14
+    horizontal_padding = 14
+    separator_height = 2
+    gap_size = 6
+
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+
+    markup = full
+    format = "<b>%s</b>\n%b"
+
+[urgency_low]
+    background = "#1B201D"
+    foreground = "#E2E8DC"
+    timeout = 4
+
+[urgency_normal]
+    background = "#1B201D"
+    foreground = "#E2E8DC"
+    timeout = 6
+
+[urgency_critical]
+    background = "#303A32"
+    foreground = "#BF616A"
+    frame_color = "#BF616A"
+    timeout = 0
