@@ -1,0 +1,130 @@
+
+;; MAOSPIX BSPWM - DARK
+;; Eww Widgets - Version limpia
+
+;; ============================================
+;; RELOJ
+;; ============================================
+
+(defpoll hora :interval "5s"
+  "date '+%H:%M'")
+
+(defpoll fecha :interval "60s"
+  "date '+%d/%m/%Y'")
+
+(defwindow maospix_clock
+  :monitor 0
+  :geometry (geometry
+    :x "-20px"
+    :y "20px"
+    :width "260px"
+    :height "125px"
+    :anchor "top right")
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore false
+
+  (box :class "clock-card"
+    :orientation "v"
+    :space-evenly false
+    (label :class "clock-title"
+      :text "◆ MAOSPIX DARK")
+    (label :class "clock-time"
+      :text hora)
+    (label :class "clock-date"
+      :text fecha)))
+
+
+;; ============================================
+;; ESTADISTICAS
+;; ============================================
+
+(defpoll cpu_pct :interval "5s"
+  "LC_ALL=C top -bn2 -d 0.2 | awk '/^%Cpu/ {idle=$8} END {printf \"%.0f\", 100-idle}'")
+
+(defpoll ram_used :interval "5s"
+  "free | awk 'NR==2 {print int($3*100/$2)}'")
+
+(defpoll disk_used :interval "30s"
+  "df -P / | awk 'NR==2 {print int($5)}'")
+
+;; ============================================
+;; PANEL DEL SISTEMA
+;; ============================================
+
+(defwindow maospix_stats
+  :monitor 0
+  :geometry (geometry
+    :x "-20px"
+    :y "165px"
+    :width "260px"
+    :height "225px"
+    :anchor "top right")
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore false
+
+  (box :class "stats-card"
+    :orientation "v"
+    :spacing 12
+
+    (label :class "stats-title"
+      :text "◆ SISTEMA MAOSPIX")
+
+    ;; CPU
+    (box :class "stat-block"
+      :orientation "v"
+      :spacing 4
+      (label :text "CPU  ${cpu_pct}%")
+      (progress :class "meter"
+        :value cpu_pct
+        :orientation "h"))
+
+    ;; RAM
+    (box :class "stat-block"
+      :orientation "v"
+      :spacing 4
+      (label :text "RAM  ${ram_used}%")
+      (progress :class "meter"
+        :value ram_used
+        :orientation "h"))
+
+    ;; DISCO
+    (box :class "stat-block"
+      :orientation "v"
+      :spacing 4
+      (label :text "DISCO  ${disk_used}%")
+      (progress :class "meter"
+        :value disk_used
+        :orientation "h"))))
+
+
+;; ============================================
+;; CALENDARIO FLOTANTE
+;; ============================================
+
+(defwindow maospix_calendar
+  :monitor 0
+  :geometry (geometry
+    :x "-20px"
+    :y "-54px"
+    :width "330px"
+    :height "360px"
+    :anchor "bottom right")
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore true
+
+  (box :class "calendar-card"
+    :orientation "v"
+    :space-evenly false
+    :spacing 4
+
+    (label :class "calendar-title"
+      :text "◆ CALENDARIO MAOSPIX")
+
+    (calendar
+      :class "calendar-grid"
+      :show-heading true
+      :show-day-names true
+      :show-week-numbers false)))
