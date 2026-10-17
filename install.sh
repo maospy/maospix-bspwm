@@ -9,9 +9,9 @@ LISTA="$REPO/packages/fedora-base.txt"
 MODO="${1:---check}"
 
 case "$MODO" in
-    --check|--check-all|--install-packages) ;;
+    --check|--check-all|--install-packages|--install) ;;
     *)
-        echo "Uso: ./install.sh [--check|--check-all|--install-packages]"
+        echo "Uso: ./install.sh [--check|--check-all|--install-packages|--install [tema]]"
         exit 1
         ;;
 esac
@@ -31,6 +31,38 @@ echo "Sistema: $(cat /etc/fedora-release)"
 if [[ ! -f "$LISTA" ]]; then
     echo "ERROR: falta la lista de paquetes."
     exit 1
+fi
+
+# Instalacion completa mediante el coordinador
+if [[ "$MODO" == "--install" ]]; then
+
+    if (( $# > 2 )); then
+        echo "ERROR: demasiados argumentos."
+        exit 1
+    fi
+
+    TEMA="${2:-nord}"
+
+    case "$TEMA" in
+        dark|neon|retro|nord) ;;
+        *)
+            echo "ERROR: tema desconocido: $TEMA"
+            exit 1
+            ;;
+    esac
+
+    COORDINADOR="$REPO/scripts/maospix-install-components.sh"
+
+    if [[ ! -f "$COORDINADOR" ]]; then
+        echo "ERROR: falta el coordinador."
+        exit 1
+    fi
+
+    echo
+    echo "Iniciando instalador Maospix..."
+    echo "Tema seleccionado: $TEMA"
+
+    exec bash "$COORDINADOR" --install "$TEMA"
 fi
 
 PAQUETES=()

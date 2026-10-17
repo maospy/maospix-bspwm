@@ -16,3 +16,6 @@ git
 autorandr
 network-manager-applet
 xfce4-power-manager
+xorg-x11-server-Xorg
+lightdm-gtk
+libnotify

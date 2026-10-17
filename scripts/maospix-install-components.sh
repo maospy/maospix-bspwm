@@ -38,6 +38,7 @@ MODULOS=(
     "scripts/maospix-install-fonts.sh"
     "scripts/maospix-install-links.sh"
     "scripts/maospix-install-configs.sh"
+    "scripts/maospix-install-state.sh"
 )
 
 echo "=== VERIFICACION DE MODULOS ==="
@@ -58,6 +59,7 @@ if [[ "$MODO" == "--check" ]]; then
 
     bash "$REPO/install.sh" --check-all
     bash "$REPO/scripts/maospix-install-configs.sh" "$TEMA" --check
+    bash "$REPO/scripts/maospix-install-state.sh" "$TEMA" --check
 
     echo
     echo "Todos los modulos fueron revisados."
@@ -100,6 +102,10 @@ printf 'INSTALAR\n' |
 # Instalar configuraciones del tema seleccionado
 printf 'INSTALAR\n' |
     bash "$REPO/scripts/maospix-install-configs.sh" "$TEMA" --install
+
+# Preparar tema inicial, estado y apariencia de Rofi
+printf 'INSTALAR\n' |
+    bash "$REPO/scripts/maospix-install-state.sh" "$TEMA" --install
 
 echo
 echo "=========================================="
