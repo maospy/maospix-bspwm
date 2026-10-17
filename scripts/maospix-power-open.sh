@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# MAOSPIX - Abrir Power Menu Eww
+# MAOSPIX BSPWM - Abrir Power Menu Eww
+
+REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 
 EWW="$HOME/.local/bin/eww"
-DIR="$HOME/Proyectos/maospix-bspwm/tests/power-menu"
+DIR="$REPO/components/power-menu"
 
 # Abrir el panel; iniciar Eww si no está ejecutándose
 if ! "$EWW" --config "$DIR" open maospix_power 2>/dev/null; then

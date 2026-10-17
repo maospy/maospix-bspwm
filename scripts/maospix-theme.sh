@@ -1,11 +1,10 @@
-
 #!/usr/bin/env bash
 # MAOSPIX BSPWM - Selector Dark / Neon
 # Plank automatico en Neon y opcional desde Rofi
 
 set -e
 
-REPO="$HOME/Proyectos/maospix-bspwm"
+REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 BACKUP="$HOME/Respaldos-Maospix/antes-selector"
 EWW="$HOME/.local/bin/eww"
 ESTADO="$HOME/.config/maospix"

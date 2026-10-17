@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # MAOSPIX - Restaurar escritorio al iniciar sesión
 
+REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 ESTADO="$HOME/.config/maospix"
 EWW="$HOME/.local/bin/eww"
 
@@ -26,7 +27,7 @@ if [[ -x "$EWW" ]]; then
 fi
 
 # Restaurar wallpaper del tema activo
-"$HOME/Proyectos/maospix-bspwm/scripts/maospix-wallpapers.sh" --apply || true
+"$REPO/scripts/maospix-wallpapers.sh" --apply || true
 
 # Restaurar colores de bordes del tema activo
-"$HOME/Proyectos/maospix-bspwm/scripts/maospix-bordes.sh" || true
+"$REPO/scripts/maospix-bordes.sh" || true

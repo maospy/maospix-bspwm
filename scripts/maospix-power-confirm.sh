@@ -11,9 +11,9 @@ case "${1:-}" in
     *) exit 1 ;;
 esac
 
-DIR="$HOME/Proyectos/maospix-bspwm"
+DIR="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 EWW="$HOME/.local/bin/eww"
-CONFIG="$DIR/tests/power-menu"
+CONFIG="$DIR/components/power-menu"
 LOG="$HOME/.cache/maospix-power.log"
 
 mkdir -p "$HOME/.cache"

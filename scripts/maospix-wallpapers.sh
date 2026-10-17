@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-REPO="$HOME/Proyectos/maospix-bspwm"
+REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 ESTADO="$HOME/.config/maospix"
 ROFI="$HOME/.config/rofi/themes/maospix-dark.rasi"
 
