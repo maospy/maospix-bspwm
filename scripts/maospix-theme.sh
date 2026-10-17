@@ -10,12 +10,25 @@ BACKUP="$HOME/Respaldos-Maospix/antes-selector"
 EWW="$HOME/.local/bin/eww"
 ESTADO="$HOME/.config/maospix"
 
-# Mostrar selector
-opcion=$(printf 'Dark\nNeon\nRetro\nCancelar\n' |
-    rofi -dmenu -i -p "◆ MAOSPIX - TEMA") || exit 0
+# Mostrar selector con circulos de colores
+opcion_id=$(
+    printf '%s\n' \
+      "<span foreground='#A3BE8C'>●</span>  Dark" \
+      "<span foreground='#B388FF'>●</span>  Neon" \
+      "<span foreground='#FF4FD8'>●</span>  Retro / Synthwave" \
+      "<span foreground='#88C0D0'>●</span>  Nord" \
+      "Cancelar" |
+    rofi -dmenu -i -no-custom -markup-rows -format i \
+      -p "◆ MAOSPIX - TEMA" \
+      -theme "$HOME/.config/rofi/themes/maospix-dark.rasi" \
+      -theme-str "window { width: 360px; } listview { columns: 1; lines: 5; fixed-height: true; } prompt { text-color: @accent; }"
+) || exit 0
 
-case "$opcion" in
-    Dark|Neon|Retro) ;;
+case "$opcion_id" in
+    0) opcion="Dark" ;;
+    1) opcion="Neon" ;;
+    2) opcion="Retro" ;;
+    3) opcion="Nord" ;;
     *) exit 0 ;;
 esac
 
@@ -78,7 +91,7 @@ if [[ "$tema" == "dark" ]]; then
     pkill -x plank 2>/dev/null || true
     bspc config bottom_padding 0
 
-elif [[ "$tema" == "neon" || "$tema" == "retro" ]]; then
+elif [[ "$tema" == "neon" || "$tema" == "retro" || "$tema" == "nord" ]]; then
     printf 'on\n' > "$ESTADO/dock-estado" 
 
     # NEON: Plank activado por defecto
@@ -96,5 +109,13 @@ polybar-msg cmd restart >/dev/null 2>&1 || true
 
 # Guardar tema seleccionado
 printf '%s\n' "$tema" > "$ESTADO/tema-actual"
+
+# Aplicar bordes del tema seleccionado
+"$REPO/scripts/maospix-bordes.sh" || true
+
+
+# Aplicar wallpaper del tema seleccionado
+"$REPO/scripts/maospix-wallpapers.sh" --apply || true
+
 
 notify-send "Maospix" "Tema $opcion aplicado"

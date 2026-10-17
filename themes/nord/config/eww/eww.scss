@@ -1,0 +1,111 @@
+
+/* ===================================
+   MAOSPIX BSPWM - NORD
+   EWW STYLE 1.0
+   =================================== */
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono";
+}
+
+window {
+  background-color: transparent;
+}
+
+/* RELOJ */
+
+.clock-card {
+  background-color: #2E3440;
+  border: 2px solid #88C0D0;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.clock-title {
+  color: #88C0D0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.clock-time {
+  color: #ECEFF4;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.clock-date {
+  color: #81A1C1;
+  font-size: 13px;
+}
+
+/* PANEL DEL SISTEMA */
+
+.stats-card {
+  background-color: #2E3440;
+  border: 2px solid #88C0D0;
+  border-radius: 14px;
+  padding: 14px;
+  color: #ECEFF4;
+}
+
+.stats-title {
+  color: #81A1C1;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.stat-block {
+  color: #ECEFF4;
+  font-size: 12px;
+}
+
+/* BARRAS DE PROGRESO */
+
+.meter trough {
+  background-color: #3B4252;
+  border-radius: 8px;
+  min-height: 9px;
+  min-width: 200px;
+}
+
+.meter progress {
+  background-color: #88C0D0;
+  border-radius: 8px;
+  min-height: 9px;
+}
+
+/* DETALLES */
+
+label {
+  color: #ECEFF4;
+}
+
+/* CALENDARIO NORD */
+
+.calendar-card {
+  background-color: #2E3440;
+  border: 2px solid #81A1C1;
+  border-radius: 14px;
+  padding: 16px;
+  color: #ECEFF4;
+}
+
+.calendar-title {
+  color: #88C0D0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  background-color: transparent;
+  color: #ECEFF4;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.calendar-grid:selected {
+  background-color: #88C0D0;
+  color: #2E3440;
+  border-radius: 6px;
+}

@@ -1,0 +1,83 @@
+;; MAOSPIX POWER MENU - Prueba segura con confirmacion
+
+(defvar power_confirm "none")
+
+(defwindow maospix_power
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "0px"
+    :width "640px"
+    :height "185px"
+    :anchor "center")
+  :stacking "fg"
+  :windowtype "dialog"
+  :wm-ignore false
+
+  (box :class "power-panel"
+    :orientation "v"
+    :space-evenly false
+    :spacing 18
+
+    (box :orientation "h" :space-evenly false
+      (label :class "power-title"
+        :hexpand true
+        :halign "start"
+        :text "◆ MAOSPIX POWER")
+      (button :class "power-close"
+        :halign "end"
+        :valign "center"
+        :onclick "${EWW_CMD} update power_confirm=none; ${EWW_CMD} close maospix_power"
+        "✕"))
+
+    (stack
+      :selected {power_confirm == "none" ? 0 : 1}
+      :transition "none"
+      :same-size false
+
+      (box :orientation "h"
+        :spacing 12
+        :space-evenly true
+
+      (button :class "power-action"
+        :onclick "$HOME/Proyectos/maospix-bspwm/scripts/maospix-power-confirm.sh Bloquear"
+        (box :orientation "v"
+          (label :class "power-icon" :text "")
+          (label :text "Bloquear")))
+
+      (button :class "power-action"
+        :onclick "$HOME/Proyectos/maospix-bspwm/scripts/maospix-power-confirm.sh Suspender"
+        (box :orientation "v"
+          (label :class "power-icon" :text "")
+          (label :text "Suspender")))
+
+      (button :class "power-action"
+        :onclick "${EWW_CMD} update power_confirm=Apagar"
+        (box :orientation "v"
+          (label :class "power-icon" :text "")
+          (label :text "Apagar")))
+
+      (button :class "power-action"
+        :onclick "${EWW_CMD} update power_confirm=Reiniciar"
+        (box :orientation "v"
+          (label :class "power-icon" :text "")
+          (label :text "Reiniciar"))))
+
+      (box :class "power-confirm"
+        :orientation "v"
+        :spacing 12
+
+      (label :class "power-question"
+        :text "¿Confirmar ${power_confirm}?")
+
+      (box :orientation "h"
+        :spacing 15
+        :space-evenly true
+
+        (button :class "power-cancel"
+          :onclick "${EWW_CMD} update power_confirm=none"
+          "Cancelar")
+
+        (button :class "power-accept"
+          :onclick "$HOME/Proyectos/maospix-bspwm/scripts/maospix-power-confirm.sh ${power_confirm}"
+          "Confirmar"))))))
