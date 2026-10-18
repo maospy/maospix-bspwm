@@ -22,9 +22,19 @@ Su objetivo es ofrecer una experiencia visual completa mediante un instalador au
 
 Todos los temas incluyen configuraciones personalizadas para Polybar, Eww y otros componentes del escritorio.
 
-### Capturas de pantalla
+<!-- MAOSPIX-SCREENSHOTS:START -->
+## 📸 Capturas reales de Maospix BSPWM
 
-Las capturas del escritorio completo serán incorporadas después de validar la primera versión instalable.
+Estas son capturas reales de los cuatro temas actuales de **Maospix BSPWM**.
+
+| Dark | Neon |
+|------|------|
+| ![Maospix Dark](assets/screenshots/dark.png) | ![Maospix Neon](assets/screenshots/neon.png) |
+
+| Nord | Retro |
+|------|------|
+| ![Maospix Nord](assets/screenshots/nord.png) | ![Maospix Retro](assets/screenshots/retro.png) |
+<!-- MAOSPIX-SCREENSHOTS:END -->
 
 ---
 
