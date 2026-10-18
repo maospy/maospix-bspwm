@@ -1,0 +1,11 @@
+# Maospix: archivos locales de desarrollo
+*.bak
+*.bak-*
+*.bak_*
+*.pyc
+__pycache__/
+.pytest_cache/
+*.log
+*.swp
+*~
+/themes/neon/cairo-dock/

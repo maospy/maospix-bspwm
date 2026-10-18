@@ -3,7 +3,7 @@
 
 set -e
 
-DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+DIR="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 
 CONFIG="$DIR/config/fastfetch/maospix-nord.jsonc"
 LOGO="$DIR/assets/logo/maospix-nord-braille.txt"

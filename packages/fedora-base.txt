@@ -19,3 +19,14 @@ xfce4-power-manager
 xorg-x11-server-Xorg
 lightdm-gtk
 libnotify
+# Maospix: iconos Polybar
+fontawesome-6-free-fonts
+fontawesome-6-brands-fonts
+# Widgets clima y visualizador de audio
+cava
+pipewire-alsa
+xdg-utils
+# Administracion Bluetooth
+bluez
+blueman
+usbutils

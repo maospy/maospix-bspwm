@@ -112,5 +112,6 @@ echo "=========================================="
 echo "     COMPONENTES MAOSPIX INSTALADOS"
 echo "=========================================="
 echo
-echo "Pendiente: configuracion del inicio de sesion,"
-echo "estado inicial del tema y prueba completa."
+echo "Paquetes, configuraciones, enlaces, Eww y estado inicial preparados."
+echo "El inicio gráfico (LightDM) se configura desde maospix.sh."
+echo "Validar el primer inicio en una instalación limpia de Fedora."

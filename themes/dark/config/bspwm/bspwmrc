@@ -10,6 +10,11 @@ polybar maospix &
 # Maospix - Gestor visual de redes
 (sleep 3; nm-applet) &
 
+# Maospix - Administrador gráfico de Bluetooth
+if command -v blueman-applet >/dev/null 2>&1; then
+    (sleep 4; pgrep -x blueman-applet >/dev/null || blueman-applet) &
+fi
+
 picom --backend xrender --shadow -b
 dunst &
 
@@ -21,8 +26,7 @@ light-locker &
 # Maospix - Restaurar wallpaper
 ~/.fehbg &
 
-# Maospix - Eww
-$HOME/.local/bin/eww daemon &
+# Eww lo inicia el controlador de widgets desde maospix-restaurar.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

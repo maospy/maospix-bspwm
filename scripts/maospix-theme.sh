@@ -75,12 +75,10 @@ cp "$BASE/eww/eww.scss" \
 cp "$BASE/rofi/themes/maospix-$tema.rasi" \
     "$HOME/.config/rofi/themes/maospix-dark.rasi"
 
-# Actualizar Eww
-if [[ -x "$EWW" ]]; then
+# Recargar temas derechos sin abrir widgets prematuramente
+if [[ -x "$EWW" ]] && "$EWW" ping >/dev/null 2>&1; then
     "$EWW" close-all 2>/dev/null || true
     "$EWW" reload || true
-    "$EWW" open maospix_clock || true
-    "$EWW" open maospix_stats || true
 fi
 
 # Dock segun tema
@@ -88,7 +86,7 @@ if [[ "$tema" == "dark" ]]; then
 
     # DARK: Polybar abajo, sin dock
     pkill -x plank 2>/dev/null || true
-    bspc config bottom_padding 0
+    bspc config bottom_padding 40
 
 elif [[ "$tema" == "neon" || "$tema" == "retro" || "$tema" == "nord" ]]; then
     printf 'on\n' > "$ESTADO/dock-estado" 
@@ -116,5 +114,9 @@ printf '%s\n' "$tema" > "$ESTADO/tema-actual"
 # Aplicar wallpaper del tema seleccionado
 "$REPO/scripts/maospix-wallpapers.sh" --apply || true
 
+
+# MAOSPIX LEFT WIDGET LAYOUT
+python3 "$REPO/scripts/maospix-left-layout.py" || true
+"$REPO/scripts/maospix-widgets.sh" apply || true
 
 notify-send "Maospix" "Tema $opcion aplicado"

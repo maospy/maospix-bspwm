@@ -115,7 +115,7 @@ if [[ "$MODO" == "--install-packages" ]]; then
         exit 0
     fi
 
-    sudo dnf install "${FALTANTES[@]}"
+    sudo dnf install -y "${FALTANTES[@]}"
     exit 0
 fi
 

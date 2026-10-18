@@ -90,6 +90,14 @@ else
     echo "[CONSERVADO] dock-estado"
 fi
 
+# Mostrar cuatro widgets por defecto (respetar preferencia existente)
+if [[ ! -e "$ESTADO/widgets-estado" ]]; then
+    printf 'on\n' > "$ESTADO/widgets-estado"
+    echo "[CREADO] widgets-estado (on)"
+else
+    echo "[CONSERVADO] widgets-estado"
+fi
+
 # Configuración de Rofi
 if cmp -s "$ORIGEN" "$ROFI" && [[ ! -L "$ROFI" ]]; then
     echo "[IGUAL] Rofi"

@@ -106,18 +106,6 @@ if [[ "$MODO" == "--check" ]]; then
     exit 0
 fi
 
-# Dependencias para compilar Eww si todavía no existe
-if [[ ! -x "$HOME/.local/bin/eww" ]]; then
-    echo
-    echo "=== PREPARANDO EWW X11 ==="
-
-    sudo dnf install -y \
-        git rust cargo gcc pkgconf-pkg-config \
-        gtk3-devel glib2-devel cairo-devel \
-        pango-devel gdk-pixbuf2-devel \
-        libdbusmenu-gtk3-devel
-fi
-
 echo
 echo "=== INSTALANDO COMPONENTES ==="
 
@@ -137,15 +125,7 @@ printf 'INSTALAR\n' |
 [[ -x "$HOME/.local/bin/eww" ]] ||
     error "Eww no quedó instalado"
 
-# Fastfetch en Kitty
-mkdir -p "$HOME/.local/bin"
-
-DEST_FASTFETCH="$HOME/.local/bin/maospix-fastfetch.sh"
-
-if [[ ! -e "$DEST_FASTFETCH" && ! -L "$DEST_FASTFETCH" ]]; then
-    ln -s "$REPO/scripts/maospix-fastfetch.sh" "$DEST_FASTFETCH"
-fi
-
+# Fastfetch en Kitty (enlace creado por maospix-install-links.sh)
 touch "$HOME/.bashrc"
 
 if ! grep -qF '# MAOSPIX FASTFETCH KITTY' "$HOME/.bashrc"; then
@@ -165,7 +145,14 @@ BASHRC
 fi
 
 echo
-echo "=== INICIO GRÁFICO ==="
+echo "=== BLUETOOTH ==="
+if command -v bluetoothctl >/dev/null 2>&1; then
+    sudo systemctl enable --now bluetooth.service || \
+      echo "[AVISO] No se pudo habilitar Bluetooth; revisá el servicio."
+fi
+
+echo
+ echo "=== INICIO GRÁFICO ==="
 
 if systemctl is-enabled --quiet gdm.service ||
    systemctl is-enabled --quiet sddm.service; then

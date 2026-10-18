@@ -29,6 +29,8 @@ ARCHIVOS=(
     eww/eww.scss
     picom/picom.conf
     dunst/dunstrc
+    maospix-left/eww.yuck
+    maospix-left/eww.scss
 )
 
 echo "=================================="
@@ -41,7 +43,12 @@ echo
 FALTANTES=0
 
 for archivo in "${ARCHIVOS[@]}"; do
-    if [[ -f "$ORIGEN/$archivo" ]]; then
+    if [[ "$archivo" == maospix-left/* ]]; then
+        src="$REPO/components/left-widgets/${archivo##*/}"
+    else
+        src="$ORIGEN/$archivo"
+    fi
+    if [[ -f "$src" ]]; then
         echo "[OK] $archivo"
     else
         echo "[FALTA] $archivo"
@@ -56,7 +63,7 @@ fi
 
 if [[ "$MODO" == "--check" ]]; then
     echo
-    echo "Verificación correcta: 7 archivos."
+    echo "Verificación correcta: ${#ARCHIVOS[@]} archivos."
     echo "No se modificó ninguna configuración."
     exit 0
 fi
@@ -74,7 +81,11 @@ fi
 BACKUP="$HOME/Respaldos-Maospix/instalacion-$(date +%Y%m%d-%H%M%S)"
 
 for archivo in "${ARCHIVOS[@]}"; do
-    src="$ORIGEN/$archivo"
+    if [[ "$archivo" == maospix-left/* ]]; then
+        src="$REPO/components/left-widgets/${archivo##*/}"
+    else
+        src="$ORIGEN/$archivo"
+    fi
     dst="$DESTINO/$archivo"
 
     if [[ ! -L "$dst" ]] && cmp -s "$src" "$dst"; then

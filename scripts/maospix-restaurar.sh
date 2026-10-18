@@ -17,17 +17,34 @@ if [[ ( "$TEMA" == "neon" || "$TEMA" == "retro" || "$TEMA" == "nord" ) && "$DOCK
     fi
 else
     pkill -x plank 2>/dev/null || true
-    bspc config bottom_padding 0
+
+    if [[ "$TEMA" == "dark" ]]; then
+        bspc config bottom_padding 40
+    else
+        bspc config bottom_padding 0
+    fi
 fi
 
-# Restaurar widgets del escritorio
+# XFCE Power Manager: la propiedad no existe en Fedora recién instalado
+if command -v xfconf-query >/dev/null 2>&1; then
+    PROP="/xfce4-power-manager/presentation-mode"
+    if ! xfconf-query -c xfce4-power-manager -p "$PROP" >/dev/null 2>&1; then
+        xfconf-query -c xfce4-power-manager -p "$PROP" --create --type bool --set false >/dev/null 2>&1 || true
+    fi
+    TRAY="/xfce4-power-manager/show-tray-icon"
+    xfconf-query -c xfce4-power-manager -p "$TRAY" --set false >/dev/null 2>&1 || \
+      xfconf-query -c xfce4-power-manager -p "$TRAY" --create --type bool --set false >/dev/null 2>&1 || true
+fi
+
+# El controlador único inicia ambas instancias de Eww cuando hace falta
+# Ajustar posiciones de clima/audio ANTES de abrir sus ventanas.
 if [[ -x "$EWW" ]]; then
-    "$EWW" open maospix_clock 2>/dev/null || true
-    "$EWW" open maospix_stats 2>/dev/null || true
+    python3 "$REPO/scripts/maospix-left-layout.py" || true
+    "$REPO/scripts/maospix-widgets.sh" apply || true
 fi
 
 # Restaurar wallpaper del tema activo
 "$REPO/scripts/maospix-wallpapers.sh" --apply || true
 
-# Restaurar colores de bordes del tema activo
+# Restaurar colores de bordes
 "$REPO/scripts/maospix-bordes.sh" || true

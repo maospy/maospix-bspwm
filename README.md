@@ -195,3 +195,16 @@ Desarrollado y personalizado por maospy.
 Repositorio: https://github.com/maospy/maospix-bspwm
 
 **Estado actual: Alpha — en desarrollo.**
+
+
+---
+
+## Widgets laterales y funcionamiento
+
+Maospix incluye reloj y estadísticas del sistema a la derecha, clima de Open-Meteo y visualizador CAVA de audio a la izquierda. El botón **WIDGETS** de Polybar alterna los cuatro y recuerda el estado al cambiar de tema o iniciar sesión. No es necesario ejecutar `eww daemon` manualmente: `maospix-restaurar.sh` y `maospix-widgets.sh` gestionan ambos servidores.
+
+El clima necesita Internet para consultar Open-Meteo. Por defecto utiliza **Itauguá, Paraguay**; se puede personalizar antes de iniciar la sesión estableciendo `MAOSPIX_CITY` y `MAOSPIX_COUNTRY` (código de país ISO de dos letras) en el entorno. No requiere clave API. El visualizador de audio usa `cava` y PipeWire/PulseAudio.
+
+**Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install nord`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio privado requiere credenciales de GitHub para descargarlo desde otro equipo.
+
+Los fondos de pantalla tienen una auditoría de origen en `docs/wallpapers-auditoria.md`. Los recursos de origen o licencia desconocidos no deben agregarse a GitHub ni incluirse en una ISO pública sin comprobar sus permisos.

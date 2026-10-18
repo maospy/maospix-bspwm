@@ -42,7 +42,8 @@ if [[ -x "$DESTINO" ]]; then
     echo
     echo "Eww actual: $VERSION_ACTUAL"
 
-    if [[ "$VERSION_ACTUAL" == eww\ 0.6.0* ]]; then
+    if [[ "$VERSION_ACTUAL" == eww\ 0.6.0* ||
+          "$VERSION_ACTUAL" == eww\ 0.5.0\ d87c2fdb* ]]; then
         INSTALADO=true
     fi
 else
@@ -73,7 +74,7 @@ if [[ "$RESPUESTA" != "INSTALAR" ]]; then
 fi
 
 if (( ${#FALTANTES[@]} > 0 )); then
-    sudo dnf install "${FALTANTES[@]}"
+    sudo dnf install -y "${FALTANTES[@]}"
 fi
 
 TEMP="$(mktemp -d)"
@@ -83,6 +84,9 @@ git clone --depth 1 --branch "$VERSION" \
     https://github.com/elkowar/eww.git "$TEMP/eww"
 
 cd "$TEMP/eww"
+
+# Compatibilidad: dependencia time 0.3.34 falla con Rust reciente (E0282)
+cargo update -p time@0.3.34 --precise 0.3.36
 
 cargo build --release --locked \
     --no-default-features --features x11
