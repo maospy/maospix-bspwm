@@ -108,3 +108,41 @@ window {
   background-color: #81A1C1;
   color: #2E3440;
 }
+
+/* Colores dinamicos por tema; la clase se actualiza al abrir. */
+
+.power-panel.theme-dark { background-color: #1B201D; border-color: #A3BE8C; }
+.power-panel.theme-dark .power-title, .power-panel.theme-dark .power-icon { color: #A3BE8C; }
+.power-panel.theme-dark .power-action, .power-panel.theme-dark .power-confirm { background-color: #303A32; color: #E2E8DC; }
+.power-panel.theme-dark .power-close, .power-panel.theme-dark .power-cancel { background-color: #303A32; color: #E2E8DC; }
+.power-panel.theme-dark .power-question { color: #E2E8DC; }
+.power-panel.theme-dark .power-accept { background-color: #A3BE8C; color: #1B201D; }
+.power-panel.theme-dark .power-action:hover, .power-panel.theme-dark .power-close:hover, .power-panel.theme-dark .power-cancel:hover { background-color: #465648; color: #A3BE8C; }
+.power-panel.theme-dark .power-accept:hover { background-color: #E2E8DC; color: #1B201D; }
+
+.power-panel.theme-neon { background-color: #121025; border-color: #B388FF; }
+.power-panel.theme-neon .power-title, .power-panel.theme-neon .power-icon { color: #B388FF; }
+.power-panel.theme-neon .power-action, .power-panel.theme-neon .power-confirm { background-color: #292044; color: #EAE6FF; }
+.power-panel.theme-neon .power-close, .power-panel.theme-neon .power-cancel { background-color: #292044; color: #EAE6FF; }
+.power-panel.theme-neon .power-question { color: #EAE6FF; }
+.power-panel.theme-neon .power-accept { background-color: #B388FF; color: #121025; }
+.power-panel.theme-neon .power-action:hover, .power-panel.theme-neon .power-close:hover, .power-panel.theme-neon .power-cancel:hover { background-color: #433361; color: #B388FF; }
+.power-panel.theme-neon .power-accept:hover { background-color: #EAE6FF; color: #121025; }
+
+.power-panel.theme-retro { background-color: #160D29; border-color: #FF4FD8; }
+.power-panel.theme-retro .power-title, .power-panel.theme-retro .power-icon { color: #FF4FD8; }
+.power-panel.theme-retro .power-action, .power-panel.theme-retro .power-confirm { background-color: #30204B; color: #FFE8F8; }
+.power-panel.theme-retro .power-close, .power-panel.theme-retro .power-cancel { background-color: #30204B; color: #FFE8F8; }
+.power-panel.theme-retro .power-question { color: #FFE8F8; }
+.power-panel.theme-retro .power-accept { background-color: #FF4FD8; color: #160D29; }
+.power-panel.theme-retro .power-action:hover, .power-panel.theme-retro .power-close:hover, .power-panel.theme-retro .power-cancel:hover { background-color: #533264; color: #FF4FD8; }
+.power-panel.theme-retro .power-accept:hover { background-color: #FFE8F8; color: #160D29; }
+
+.power-panel.theme-nord { background-color: #2E3440; border-color: #88C0D0; }
+.power-panel.theme-nord .power-title, .power-panel.theme-nord .power-icon { color: #88C0D0; }
+.power-panel.theme-nord .power-action, .power-panel.theme-nord .power-confirm { background-color: #3B4252; color: #ECEFF4; }
+.power-panel.theme-nord .power-close, .power-panel.theme-nord .power-cancel { background-color: #3B4252; color: #ECEFF4; }
+.power-panel.theme-nord .power-question { color: #ECEFF4; }
+.power-panel.theme-nord .power-accept { background-color: #88C0D0; color: #2E3440; }
+.power-panel.theme-nord .power-action:hover, .power-panel.theme-nord .power-close:hover, .power-panel.theme-nord .power-cancel:hover { background-color: #434C5E; color: #88C0D0; }
+.power-panel.theme-nord .power-accept:hover { background-color: #ECEFF4; color: #2E3440; }

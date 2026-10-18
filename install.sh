@@ -41,7 +41,7 @@ if [[ "$MODO" == "--install" ]]; then
         exit 1
     fi
 
-    TEMA="${2:-nord}"
+    TEMA="${2:-dark}"
 
     case "$TEMA" in
         dark|neon|retro|nord) ;;
@@ -159,7 +159,7 @@ done
 if [[ "$MODO" == "--check-all" ]]; then
     echo
     echo "=== CONFIGURACIONES NORD ==="
-    bash "$REPO/scripts/maospix-install-configs.sh" nord --check
+    bash "$REPO/scripts/maospix-install-configs.sh" dark --check
 
     echo
     echo "=== FUENTES ==="
@@ -172,6 +172,10 @@ if [[ "$MODO" == "--check-all" ]]; then
     echo
     echo "=== ENLACES MAOSPIX ==="
     bash "$REPO/scripts/maospix-install-links.sh" --check
+
+    echo
+    echo "=== APLICACIONES ==="
+    bash "$REPO/scripts/maospix-install-apps.sh" --check
 
     echo
     echo "=== WALLPAPERS MAOSPIX ==="

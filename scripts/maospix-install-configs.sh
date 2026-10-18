@@ -5,7 +5,7 @@ set -euo pipefail
 
 REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 
-TEMA="${1:-nord}"
+TEMA="${1:-dark}"
 MODO="${2:---check}"
 
 case "$TEMA" in

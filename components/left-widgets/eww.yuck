@@ -1,5 +1,5 @@
-(defpoll mpx_theme :interval "3s" :initial "nord"
-  `cat "$HOME/.config/maospix/tema-actual" 2>/dev/null || echo nord`)
+;; Tema sincronizado por el controlador WIDGETS (sin retrasos del sondeo)
+(defvar mpx_theme "dark")
 
 (defpoll mpx_weather :interval "15m"
   :initial "{\"city\":\"Cargando\",\"temp\":\"--\",\"humidity\":\"--\",\"wind\":\"--\",\"icon\":\"☁\",\"desc\":\"Consultando clima\"}"

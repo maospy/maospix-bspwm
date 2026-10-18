@@ -105,13 +105,13 @@ Entrar al proyecto:
 
 ### 3. Comprobar los requisitos
 
-    bash maospix.sh --check nord
+    bash maospix.sh --check dark
 
 El instalador mostrará los paquetes presentes y los faltantes.
 
 ### 4. Instalar Maospix
 
-    bash maospix.sh --install nord
+    bash maospix.sh --install dark
 
 Para seleccionar otro tema inicial:
 
@@ -205,6 +205,26 @@ Maospix incluye reloj y estadísticas del sistema a la derecha, clima de Open-Me
 
 El clima necesita Internet para consultar Open-Meteo. Por defecto utiliza **Itauguá, Paraguay**; se puede personalizar antes de iniciar la sesión estableciendo `MAOSPIX_CITY` y `MAOSPIX_COUNTRY` (código de país ISO de dos letras) en el entorno. No requiere clave API. El visualizador de audio usa `cava` y PipeWire/PulseAudio.
 
-**Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install nord`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio privado requiere credenciales de GitHub para descargarlo desde otro equipo.
+**Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install dark`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio privado requiere credenciales de GitHub para descargarlo desde otro equipo.
 
 Los fondos de pantalla tienen una auditoría de origen en `docs/wallpapers-auditoria.md`. Los recursos de origen o licencia desconocidos no deben agregarse a GitHub ni incluirse en una ISO pública sin comprobar sus permisos.
+
+
+### Aplicaciones incluidas (Fedora)
+
+El instalador principal prepara Brave (repositorio RPM oficial) y CLIAMP
+(v1.63.1, binario SHA256 verificado con aviso MIT). También instala Fastfetch
+desde los repositorios Fedora y lo muestra automáticamente al iniciar Kitty.
+Para reintentar las aplicaciones externas sin reinstalar el escritorio:
+
+```bash
+bash scripts/maospix-install-apps.sh --install
+```
+
+Los widgets Eww sincronizan ahora el tema mediante el controlador `maospix-widgets.sh`;
+el menú de apagado toma la paleta del tema actual al abrirse.
+
+
+### Inicio predeterminado
+
+El tema oficial por defecto es **Dark**. `bash maospix.sh --install` prepara Dark automáticamente; los otros temas siguen disponibles en Polybar.

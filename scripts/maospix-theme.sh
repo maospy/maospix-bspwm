@@ -75,10 +75,10 @@ cp "$BASE/eww/eww.scss" \
 cp "$BASE/rofi/themes/maospix-$tema.rasi" \
     "$HOME/.config/rofi/themes/maospix-dark.rasi"
 
-# Recargar temas derechos sin abrir widgets prematuramente
+# Un único daemon Eww para el lado derecho. Nunca se mata o duplica.
+# La recarga lee la nueva configuración del tema, sin abrir ventanas todavía.
 if [[ -x "$EWW" ]] && "$EWW" ping >/dev/null 2>&1; then
-    "$EWW" close-all 2>/dev/null || true
-    "$EWW" reload || true
+    "$EWW" reload >/dev/null 2>&1 || notify-send 'Maospix' 'Revisar recarga Eww' || true
 fi
 
 # Dock segun tema
@@ -89,7 +89,7 @@ if [[ "$tema" == "dark" ]]; then
     bspc config bottom_padding 40
 
 elif [[ "$tema" == "neon" || "$tema" == "retro" || "$tema" == "nord" ]]; then
-    printf 'on\n' > "$ESTADO/dock-estado" 
+    printf 'on\n' > "$ESTADO/dock-estado"
 
     # NEON: Plank activado por defecto
     bspc config bottom_padding 75
@@ -115,8 +115,9 @@ printf '%s\n' "$tema" > "$ESTADO/tema-actual"
 "$REPO/scripts/maospix-wallpapers.sh" --apply || true
 
 
-# MAOSPIX LEFT WIDGET LAYOUT
+# Sincronizar widgets izquierdos (incluye la nueva variable de tema)
 python3 "$REPO/scripts/maospix-left-layout.py" || true
+# Abrir de nuevo los derechos SOLO si el usuario tiene WIDGETS en ON
 "$REPO/scripts/maospix-widgets.sh" apply || true
 
 notify-send "Maospix" "Tema $opcion aplicado"

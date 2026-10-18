@@ -38,7 +38,11 @@ if [[ "${1:-}" == "--apply" ]]; then
     IMAGEN="$(cat "$GUARDADO" 2>/dev/null || true)"
 
     if [[ ! -f "$IMAGEN" || "$IMAGEN" != "$DIR/"* ]]; then
-        IMAGEN="${IMAGENES[0]}"
+        if [[ "$TEMA" == dark && -f "$DIR/maospix-dark.png" ]]; then
+            IMAGEN="$DIR/maospix-dark.png"
+        else
+            IMAGEN="${IMAGENES[0]}"
+        fi
     fi
 
     feh --bg-fill "$IMAGEN"

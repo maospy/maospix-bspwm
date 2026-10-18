@@ -6,7 +6,7 @@ set -euo pipefail
 
 REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 MODO="${1:---check}"
-TEMA="${2:-nord}"
+TEMA="${2:-dark}"
 
 case "$MODO" in
     --check|--install) ;;
@@ -39,6 +39,7 @@ MODULOS=(
     "scripts/maospix-install-links.sh"
     "scripts/maospix-install-configs.sh"
     "scripts/maospix-install-state.sh"
+    "scripts/maospix-install-apps.sh"
 )
 
 echo "=== VERIFICACION DE MODULOS ==="
@@ -106,6 +107,15 @@ printf 'INSTALAR\n' |
 # Preparar tema inicial, estado y apariencia de Rofi
 printf 'INSTALAR\n' |
     bash "$REPO/scripts/maospix-install-state.sh" "$TEMA" --install
+
+# Brave y CLIAMP son aplicaciones externas: si su servidor está caído,
+# no bloquean la instalación del escritorio principal.
+echo
+ echo "=== APLICACIONES MAOSPIX ==="
+if ! bash "$REPO/scripts/maospix-install-apps.sh" --install; then
+    echo '[AVISO] Brave o CLIAMP pendientes. Podés reintentar más tarde:'
+    echo "  bash '$REPO/scripts/maospix-install-apps.sh' --install"
+fi
 
 echo
 echo "=========================================="

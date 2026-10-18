@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 MODO="${1:---check}"
-TEMA="${2:-nord}"
+TEMA="${2:-dark}"
 URL="https://github.com/maospy/maospix-bspwm.git"
 DESTINO="$HOME/.local/share/maospix-bspwm"
 
