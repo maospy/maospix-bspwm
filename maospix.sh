@@ -122,8 +122,6 @@ printf 'INSTALAR\n' |
 [[ "$(cat "$HOME/.config/maospix/tema-actual")" == "$TEMA" ]] ||
     error "El tema instalado no coincide"
 
-[[ -x "$HOME/.local/bin/eww" ]] ||
-    error "Eww no quedó instalado"
 
 # Fastfetch en Kitty (enlace creado por maospix-install-links.sh)
 touch "$HOME/.bashrc"

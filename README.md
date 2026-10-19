@@ -20,7 +20,7 @@ Su objetivo es ofrecer una experiencia visual completa mediante un instalador au
 | Retro | Inspirado en Synthwave y Retrowave |
 | Nord | Tonos azules fríos y estética tecnológica |
 
-Todos los temas incluyen configuraciones personalizadas para Polybar, Eww y otros componentes del escritorio.
+Todos los temas incluyen configuraciones personalizadas para Polybar, Rofi y otros componentes del escritorio.
 
 <!-- MAOSPIX-SCREENSHOTS:START -->
 ## 📸 Capturas reales de Maospix BSPWM
@@ -50,7 +50,7 @@ Estas son capturas reales de los cuatro temas actuales de **Maospix BSPWM**.
 | Terminal principal | Kitty |
 | Terminal alternativa | Alacritty |
 | Lanzador de aplicaciones | Rofi |
-| Widgets | Eww |
+| Información del sistema | Polybar |
 | Información del sistema | Fastfetch |
 | Compositor | Picom |
 | Notificaciones | Dunst |
@@ -69,7 +69,7 @@ Maospix incluye un Power Menu personalizado, selector de temas y galería visual
 - Conexión a Internet.
 - Usuario normal con permisos sudo.
 - Git para descargar el repositorio.
-- Espacio disponible para instalar paquetes y compilar Eww.
+- Espacio disponible para instalar los paquetes de Maospix.
 
 Se recomienda probar inicialmente en una máquina virtual o instalación limpia.
 
@@ -201,7 +201,7 @@ Repositorio: https://github.com/maospy/maospix-bspwm
 
 ## Widgets laterales y funcionamiento
 
-Maospix incluye reloj y estadísticas del sistema a la derecha, clima de Open-Meteo y visualizador CAVA de audio a la izquierda. El botón **WIDGETS** de Polybar alterna los cuatro y recuerda el estado al cambiar de tema o iniciar sesión. No es necesario ejecutar `eww daemon` manualmente: `maospix-restaurar.sh` y `maospix-widgets.sh` gestionan una sola instancia Eww para los cuatro paneles.
+Maospix concentra la información esencial del sistema en Polybar. Los widgets de escritorio no forman parte del núcleo y podrán añadirse posteriormente como extras opcionales.
 
 El clima necesita Internet para consultar Open-Meteo. Por defecto utiliza **Itauguá, Paraguay**; se puede personalizar antes de iniciar la sesión estableciendo `MAOSPIX_CITY` y `MAOSPIX_COUNTRY` (código de país ISO de dos letras) en el entorno. No requiere clave API. El visualizador de audio usa `cava` y PipeWire/PulseAudio.
 
@@ -221,7 +221,7 @@ Para reintentar las aplicaciones externas sin reinstalar el escritorio:
 bash scripts/maospix-install-apps.sh --install
 ```
 
-Los cuatro widgets comparten la configuración `~/.config/eww/` y una sola instancia Eww. Sus estilos están fijados por cada tema; `maospix-widgets.sh` controla las cuatro ventanas y recuerda ON/OFF;
+Los cuatro temas Dark, Neon, Retro y Nord funcionan sin depender de un sistema externo de widgets;
 el menú de apagado toma la paleta del tema actual al abrirse.
 
 

@@ -11,7 +11,6 @@ SCRIPTS=(
     maospix-bluetooth.sh
     maospix-cafe.sh
     maospix-wallpapers.sh
-    maospix-widgets.sh
     maospix-theme.sh
     maospix-power-open.sh
     maospix-power-confirm.sh

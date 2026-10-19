@@ -129,8 +129,6 @@ ARCHIVOS=(
     scripts/maospix-fastfetch.sh
     scripts/maospix-theme.sh
     scripts/maospix-wallpapers.sh
-    components/power-menu/eww.yuck
-    components/power-menu/eww.scss
 )
 
 for archivo in "${ARCHIVOS[@]}"; do
@@ -166,8 +164,6 @@ if [[ "$MODO" == "--check-all" ]]; then
     bash "$REPO/scripts/maospix-install-fonts.sh" --check
 
     echo
-    echo "=== EWW ==="
-    bash "$REPO/scripts/maospix-install-eww.sh" --check
 
     echo
     echo "=== ENLACES MAOSPIX ==="

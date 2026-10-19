@@ -34,7 +34,6 @@ echo
 
 MODULOS=(
     "install.sh"
-    "scripts/maospix-install-eww.sh"
     "scripts/maospix-install-fonts.sh"
     "scripts/maospix-install-links.sh"
     "scripts/maospix-install-configs.sh"
@@ -70,7 +69,7 @@ fi
 
 echo
 echo "ATENCION:"
-echo "Se instalaran paquetes, Eww, fuentes,"
+echo "Se instalaran paquetes, fuentes,"
 echo "enlaces y configuraciones del tema $TEMA."
 echo
 echo "Las configuraciones existentes se respaldaran."
@@ -88,9 +87,6 @@ fi
 printf 'INSTALAR\n' |
     bash "$REPO/install.sh" --install-packages
 
-# Instalar Eww para X11
-printf 'INSTALAR\n' |
-    bash "$REPO/scripts/maospix-install-eww.sh" --install
 
 # Instalar la fuente oficial Maospix
 printf 'INSTALAR\n' |
@@ -122,6 +118,6 @@ echo "=========================================="
 echo "     COMPONENTES MAOSPIX INSTALADOS"
 echo "=========================================="
 echo
-echo "Paquetes, configuraciones, enlaces, Eww y estado inicial preparados."
+echo "Paquetes, configuraciones, enlaces y estado inicial preparados."
 echo "El inicio gráfico (LightDM) se configura desde maospix.sh."
 echo "Validar el primer inicio en una instalación limpia de Fedora."

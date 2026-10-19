@@ -26,7 +26,6 @@ light-locker &
 # Maospix - Restaurar wallpaper
 ~/.fehbg &
 
-# Eww lo inicia el controlador de widgets desde maospix-restaurar.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

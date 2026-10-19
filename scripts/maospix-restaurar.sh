@@ -3,7 +3,6 @@
 
 REPO="$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)"
 ESTADO="$HOME/.config/maospix"
-EWW="$HOME/.local/bin/eww"
 
 TEMA="$(cat "$ESTADO/tema-actual" 2>/dev/null || echo dark)"
 DOCK="$(cat "$ESTADO/dock-estado" 2>/dev/null || echo on)"
@@ -36,10 +35,6 @@ if command -v xfconf-query >/dev/null 2>&1; then
       xfconf-query -c xfce4-power-manager -p "$TRAY" --create --type bool --set false >/dev/null 2>&1 || true
 fi
 
-# Un único daemon maneja los cuatro widgets y respeta ON/OFF.
-if [[ -x "$EWW" ]]; then
-    "$REPO/scripts/maospix-widgets.sh" apply || true
-fi
 
 # Restaurar wallpaper del tema activo
 "$REPO/scripts/maospix-wallpapers.sh" --apply || true

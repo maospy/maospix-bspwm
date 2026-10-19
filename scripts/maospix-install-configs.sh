@@ -25,8 +25,6 @@ ARCHIVOS=(
     bspwm/bspwmrc
     sxhkd/sxhkdrc
     polybar/config.ini
-    eww/eww.yuck
-    eww/eww.scss
     picom/picom.conf
     dunst/dunstrc
 )
