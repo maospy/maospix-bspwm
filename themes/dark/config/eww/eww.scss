@@ -107,3 +107,33 @@ label {
   color: #1B201D;
   border-radius: 6px;
 }
+
+/* Widgets izquierdos de DARK. Una sola hoja CSS, una sola instancia Eww. */
+.mpx-card {
+  background-color: #1B201D;
+  color: #E2E8DC;
+  border: 2px solid #A3BE8C;
+  border-radius: 14px;
+  padding: 14px;
+}
+.mpx-title { color: #A3BE8C; font-size: 12px; font-weight: bold; }
+.mpx-temp { color: #E2E8DC; font-size: 26px; font-weight: bold; }
+.mpx-desc { color: #E2E8DC; font-size: 12px; }
+.mpx-small { color: #A3BE8C; font-size: 10px; }
+.mpx-source {
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  box-shadow: none;
+  color: #A3BE8C;
+  padding: 0;
+  font-size: 9px;
+}
+.mpx-eq { min-height: 85px; padding-top: 5px; }
+.mpx-bar {
+  min-width: 9px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 3px 3px 0 0;
+  background-color: #D6B16B;
+}

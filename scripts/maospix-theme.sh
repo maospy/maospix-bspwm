@@ -75,10 +75,17 @@ cp "$BASE/eww/eww.scss" \
 cp "$BASE/rofi/themes/maospix-$tema.rasi" \
     "$HOME/.config/rofi/themes/maospix-dark.rasi"
 
-# Un único daemon Eww para el lado derecho. Nunca se mata o duplica.
-# La recarga lee la nueva configuración del tema, sin abrir ventanas todavía.
+# UNA instancia Eww y cuatro ventanas.
+# Cerramos las ventanas ANTES de recargar; el controlador las recrea
+# solamente si el usuario tiene WIDGETS activado.
 if [[ -x "$EWW" ]] && "$EWW" ping >/dev/null 2>&1; then
-    "$EWW" reload >/dev/null 2>&1 || notify-send 'Maospix' 'Revisar recarga Eww' || true
+    for w in maospix_clock maospix_stats mpx_weather_window mpx_audio_window; do
+        "$EWW" close "$w" >/dev/null 2>&1 || true
+    done
+    if ! "$EWW" reload; then
+        notify-send 'Maospix' 'Error recargando los widgets' || true
+        exit 1
+    fi
 fi
 
 # Dock segun tema
@@ -115,9 +122,8 @@ printf '%s\n' "$tema" > "$ESTADO/tema-actual"
 "$REPO/scripts/maospix-wallpapers.sh" --apply || true
 
 
-# Sincronizar widgets izquierdos (incluye la nueva variable de tema)
-python3 "$REPO/scripts/maospix-left-layout.py" || true
-# Abrir de nuevo los derechos SOLO si el usuario tiene WIDGETS en ON
-"$REPO/scripts/maospix-widgets.sh" apply || true
+# Reabrir los cuatro widgets únicamente si el usuario tiene WIDGETS en ON.
+"$REPO/scripts/maospix-widgets.sh" apply ||
+    notify-send 'Maospix' 'Error en el controlador WIDGETS' || true
 
 notify-send "Maospix" "Tema $opcion aplicado"

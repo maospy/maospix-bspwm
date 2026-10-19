@@ -116,3 +116,33 @@ label {
   color: #160D29;
   border-radius: 6px;
 }
+
+/* Widgets izquierdos de RETRO. Una sola hoja CSS, una sola instancia Eww. */
+.mpx-card {
+  background-color: #160D29;
+  color: #FFE8F8;
+  border: 2px solid #FF4FD8;
+  border-radius: 14px;
+  padding: 14px;
+}
+.mpx-title { color: #45D9FF; font-size: 12px; font-weight: bold; }
+.mpx-temp { color: #FFE8F8; font-size: 26px; font-weight: bold; }
+.mpx-desc { color: #FFE8F8; font-size: 12px; }
+.mpx-small { color: #45D9FF; font-size: 10px; }
+.mpx-source {
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  box-shadow: none;
+  color: #45D9FF;
+  padding: 0;
+  font-size: 9px;
+}
+.mpx-eq { min-height: 85px; padding-top: 5px; }
+.mpx-bar {
+  min-width: 9px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 3px 3px 0 0;
+  background-color: #FF4FD8;
+}

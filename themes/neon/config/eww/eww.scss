@@ -109,3 +109,33 @@ label {
   color: #121025;
   border-radius: 6px;
 }
+
+/* Widgets izquierdos de NEON. Una sola hoja CSS, una sola instancia Eww. */
+.mpx-card {
+  background-color: #121025;
+  color: #EAE6FF;
+  border: 2px solid #B388FF;
+  border-radius: 14px;
+  padding: 14px;
+}
+.mpx-title { color: #42D9FF; font-size: 12px; font-weight: bold; }
+.mpx-temp { color: #EAE6FF; font-size: 26px; font-weight: bold; }
+.mpx-desc { color: #EAE6FF; font-size: 12px; }
+.mpx-small { color: #42D9FF; font-size: 10px; }
+.mpx-source {
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  box-shadow: none;
+  color: #42D9FF;
+  padding: 0;
+  font-size: 9px;
+}
+.mpx-eq { min-height: 85px; padding-top: 5px; }
+.mpx-bar {
+  min-width: 9px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 3px 3px 0 0;
+  background-color: #B388FF;
+}

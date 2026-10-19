@@ -29,8 +29,6 @@ ARCHIVOS=(
     eww/eww.scss
     picom/picom.conf
     dunst/dunstrc
-    maospix-left/eww.yuck
-    maospix-left/eww.scss
 )
 
 echo "=================================="
@@ -43,11 +41,7 @@ echo
 FALTANTES=0
 
 for archivo in "${ARCHIVOS[@]}"; do
-    if [[ "$archivo" == maospix-left/* ]]; then
-        src="$REPO/components/left-widgets/${archivo##*/}"
-    else
-        src="$ORIGEN/$archivo"
-    fi
+    src="$ORIGEN/$archivo"
     if [[ -f "$src" ]]; then
         echo "[OK] $archivo"
     else
@@ -81,11 +75,7 @@ fi
 BACKUP="$HOME/Respaldos-Maospix/instalacion-$(date +%Y%m%d-%H%M%S)"
 
 for archivo in "${ARCHIVOS[@]}"; do
-    if [[ "$archivo" == maospix-left/* ]]; then
-        src="$REPO/components/left-widgets/${archivo##*/}"
-    else
-        src="$ORIGEN/$archivo"
-    fi
+    src="$ORIGEN/$archivo"
     dst="$DESTINO/$archivo"
 
     if [[ ! -L "$dst" ]] && cmp -s "$src" "$dst"; then

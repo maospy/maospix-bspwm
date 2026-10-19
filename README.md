@@ -201,7 +201,7 @@ Repositorio: https://github.com/maospy/maospix-bspwm
 
 ## Widgets laterales y funcionamiento
 
-Maospix incluye reloj y estadísticas del sistema a la derecha, clima de Open-Meteo y visualizador CAVA de audio a la izquierda. El botón **WIDGETS** de Polybar alterna los cuatro y recuerda el estado al cambiar de tema o iniciar sesión. No es necesario ejecutar `eww daemon` manualmente: `maospix-restaurar.sh` y `maospix-widgets.sh` gestionan ambos servidores.
+Maospix incluye reloj y estadísticas del sistema a la derecha, clima de Open-Meteo y visualizador CAVA de audio a la izquierda. El botón **WIDGETS** de Polybar alterna los cuatro y recuerda el estado al cambiar de tema o iniciar sesión. No es necesario ejecutar `eww daemon` manualmente: `maospix-restaurar.sh` y `maospix-widgets.sh` gestionan una sola instancia Eww para los cuatro paneles.
 
 El clima necesita Internet para consultar Open-Meteo. Por defecto utiliza **Itauguá, Paraguay**; se puede personalizar antes de iniciar la sesión estableciendo `MAOSPIX_CITY` y `MAOSPIX_COUNTRY` (código de país ISO de dos letras) en el entorno. No requiere clave API. El visualizador de audio usa `cava` y PipeWire/PulseAudio.
 
@@ -221,7 +221,7 @@ Para reintentar las aplicaciones externas sin reinstalar el escritorio:
 bash scripts/maospix-install-apps.sh --install
 ```
 
-Los widgets Eww sincronizan ahora el tema mediante el controlador `maospix-widgets.sh`;
+Los cuatro widgets comparten la configuración `~/.config/eww/` y una sola instancia Eww. Sus estilos están fijados por cada tema; `maospix-widgets.sh` controla las cuatro ventanas y recuerda ON/OFF;
 el menú de apagado toma la paleta del tema actual al abrirse.
 
 

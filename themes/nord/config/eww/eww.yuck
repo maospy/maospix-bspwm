@@ -135,3 +135,67 @@
       :show-heading true
       :show-day-names true
       :show-week-numbers false)))
+
+;; ========== MAOSPIX NORD - CLIMA Y CAVA EN UN SOLO EWW ==========
+(defpoll mpx_weather :interval "15m"
+  :initial "{\"city\":\"Cargando\",\"temp\":\"--\",\"humidity\":\"--\",\"wind\":\"--\",\"icon\":\"☁\",\"desc\":\"Consultando clima\"}"
+  `$HOME/.local/bin/maospix-weather-left.py`)
+
+(deflisten mpx_audio
+  :initial "[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]"
+  `$HOME/.local/bin/maospix-cava-left.sh`)
+
+(defwindow mpx_weather_window
+  :monitor 0
+  :geometry (geometry
+    :x "16px"
+    :y "55px"
+    :width "260px"
+    :height "175px"
+    :anchor "top left")
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore false
+
+  (box :class "mpx-card"
+       :orientation "v" :spacing 6
+    (label :class "mpx-title"
+           :text "◆ CLIMA · ${mpx_weather.city}")
+    (label :class "mpx-temp"
+           :text "${mpx_weather.icon}  ${mpx_weather.temp} °C")
+    (label :class "mpx-desc"
+           :text "${mpx_weather.desc}")
+    (label :class "mpx-small"
+           :text "HUM ${mpx_weather.humidity}%   VIENTO ${mpx_weather.wind} km/h")
+    (button :class "mpx-source"
+            :onclick "xdg-open https://open-meteo.com/"
+      "Datos: Open-Meteo.com ↗")))
+
+(defwindow mpx_audio_window
+  :monitor 0
+  :geometry (geometry
+    :x "16px"
+    :y "295px"
+    :width "260px"
+    :height "175px"
+    :anchor "top left")
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore false
+
+  (box :class "mpx-card"
+       :orientation "v" :spacing 9
+    (label :class "mpx-title"
+           :text "♫ AUDIO DEL SISTEMA")
+    (box :class "mpx-eq"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+      (for nivel in mpx_audio
+        (box :class "mpx-bar"
+             :valign "end"
+             :style "min-height: ${nivel}px;"
+          "")))
+    (label :class "mpx-small"
+           :text "CAVA · AUDIO EN VIVO")))
+

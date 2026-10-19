@@ -36,10 +36,8 @@ if command -v xfconf-query >/dev/null 2>&1; then
       xfconf-query -c xfce4-power-manager -p "$TRAY" --create --type bool --set false >/dev/null 2>&1 || true
 fi
 
-# El controlador único inicia ambas instancias de Eww cuando hace falta
-# Ajustar posiciones de clima/audio ANTES de abrir sus ventanas.
+# Un único daemon maneja los cuatro widgets y respeta ON/OFF.
 if [[ -x "$EWW" ]]; then
-    python3 "$REPO/scripts/maospix-left-layout.py" || true
     "$REPO/scripts/maospix-widgets.sh" apply || true
 fi
 
