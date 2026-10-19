@@ -17,8 +17,6 @@ SCRIPTS=(
     maospix-restaurar.sh
     maospix-dock.sh
     maospix-fastfetch.sh
-    maospix-cava-left.sh
-    maospix-weather-left.py
 )
 
 case "$MODO" in

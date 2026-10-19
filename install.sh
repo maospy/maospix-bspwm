@@ -156,7 +156,7 @@ done
 
 if [[ "$MODO" == "--check-all" ]]; then
     echo
-    echo "=== CONFIGURACIONES NORD ==="
+    echo "=== CONFIGURACIONES BASE ==="
     bash "$REPO/scripts/maospix-install-configs.sh" dark --check
 
     echo

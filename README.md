@@ -203,7 +203,6 @@ Repositorio: https://github.com/maospy/maospix-bspwm
 
 Maospix concentra la información esencial del sistema en Polybar. Los widgets de escritorio no forman parte del núcleo y podrán añadirse posteriormente como extras opcionales.
 
-El clima necesita Internet para consultar Open-Meteo. Por defecto utiliza **Itauguá, Paraguay**; se puede personalizar antes de iniciar la sesión estableciendo `MAOSPIX_CITY` y `MAOSPIX_COUNTRY` (código de país ISO de dos letras) en el entorno. No requiere clave API. El visualizador de audio usa `cava` y PipeWire/PulseAudio.
 
 **Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install dark`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio privado requiere credenciales de GitHub para descargarlo desde otro equipo.
 

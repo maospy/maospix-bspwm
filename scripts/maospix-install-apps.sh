@@ -10,7 +10,7 @@ CLIAMP_VERSION=v1.63.1
 CLIAMP_SHA_AMD64=4754a374a17e2dcd3519665a43827b8c77853c874667ee3c97574a1d32d6bffc
 CLIAMP_SHA_ARM64=62de249cf7e728bc1abd6d6b58462c875e120e540715b7cdfdb90b1fa5c13f18
 
-if command -v brave-browser >/dev/null 2>&1; then echo '[OK] Brave'; else echo '[FALTA] Brave'; fi
+if command -v brave-browser >/dev/null 2>&1; then echo '[OK] Brave'; else echo '[OPCIONAL] Brave no instalado'; fi
 if command -v cliamp >/dev/null 2>&1 || [[ -x "$HOME/.local/bin/cliamp" ]]; then echo '[OK] CLIAMP'; else echo '[FALTA] CLIAMP'; fi
 if [[ "$MODO" == --check ]]; then exit 0; fi
 

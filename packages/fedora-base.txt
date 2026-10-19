@@ -23,7 +23,6 @@ libnotify
 fontawesome-6-free-fonts
 fontawesome-6-brands-fonts
 # Widgets clima y visualizador de audio
-cava
 pipewire-alsa
 xdg-utils
 # Administracion Bluetooth
