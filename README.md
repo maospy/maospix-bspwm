@@ -204,7 +204,7 @@ Repositorio: https://github.com/maospy/maospix-bspwm
 Maospix concentra la información esencial del sistema en Polybar. Los widgets de escritorio no forman parte del núcleo y podrán añadirse posteriormente como extras opcionales.
 
 
-**Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install dark`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio privado requiere credenciales de GitHub para descargarlo desde otro equipo.
+**Comprobación:** `bash install.sh --check-all`; **instalación de prueba:** `bash maospix.sh --install dark`. Reiniciá la sesión gráfica solamente después de comprobar que termina sin errores. El repositorio es público y puede descargarse directamente desde GitHub.
 
 Los fondos de pantalla tienen una auditoría de origen en `docs/wallpapers-auditoria.md`. Los recursos de origen o licencia desconocidos no deben agregarse a GitHub ni incluirse en una ISO pública sin comprobar sus permisos.
 
@@ -227,3 +227,19 @@ el menú de apagado toma la paleta del tema actual al abrirse.
 ### Inicio predeterminado
 
 El tema oficial por defecto es **Dark**. `bash maospix.sh --install` prepara Dark automáticamente; los otros temas siguen disponibles en Polybar.
+
+## Instalación rápida
+
+Maospix BSPWM puede instalarse directamente desde GitHub en Fedora:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/maospy/maospix-bspwm/main/maospix.sh) --install dark
+```
+
+Para comprobar compatibilidad sin instalar:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/maospy/maospix-bspwm/main/maospix.sh) --check dark
+```
+
+Temas disponibles: `dark`, `neon`, `retro` y `nord`.
